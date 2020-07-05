@@ -1,0 +1,323 @@
+// # Front-end Style Guide
+
+// ## Layout
+$mobile: 600px;
+$desktop: 800px;
+$desktop_big: 1000px;
+
+
+// ## Colors
+
+$colors: (
+    dark_blue: hsl(233, 26%, 24%),
+    lime_green: hsl(136, 65%, 51%),
+    bright_cyan: hsl(192, 70%, 51%),
+    grayish_blue: hsl(233, 8%, 62%),
+    light_gayish_blue: hsl(220, 16%, 96%),
+    very_light_gray: hsl(0, 0%, 98%),
+    white: hsl(0, 0%, 100%)
+
+);
+
+@function color($color-name) {
+	@return map-get($colors, $color-name);
+}
+
+// ## Typography
+
+// ### Body Copy
+
+// - Font size: 18px
+
+$font_size: 18px;
+
+$font_familiy: 'Public Sans', sans-serif;
+
+$font-weight: (
+    light: 300,
+    normal: 400,
+    bold: 700
+);
+
+@function weight($font-name){
+    @return map-get($font-weight, $font-name)
+};
+
+body{
+    font-family: $font_familiy;
+    margin:0;
+    box-sizing: border-box;
+    line-height: 1.5rem;
+    font-size: $font_size;
+
+}
+
+.container {
+    padding:1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    @media(min-width: $desktop){
+        padding:2rem;
+    }
+
+}
+.container_nav{
+    background-color: color(white);
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index:1;
+}
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin: 0 auto;
+    max-width: 1200px;
+    align-items: center;
+    padding:1.5rem;
+
+    @media(min-width: $desktop){
+        padding:2rem;
+    }
+  
+    img{
+        display: block;
+
+    }
+    button{
+        display: none;
+        @media(min-width: $desktop){
+            display: block;
+        }
+    }
+
+}
+.nav_icons{
+
+    @media(min-width: $desktop){
+        display: none;
+    }
+}
+
+.nav_menu{
+    display: none;
+    background-color: color(white);
+    position: absolute;
+    top: 5rem;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    list-style-type: none;
+    padding-inline-start: 0;
+    text-align: center;
+    padding: 1.5rem;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-size: .9rem;
+
+    li{
+        padding: .8rem;
+    }
+
+    @media(min-width: $desktop){
+        display:flex;
+        width: auto;
+        color: color(grayish_blue);
+        top: 5px;
+    }
+}
+.active{
+    display: block;
+    @media(min-width: $desktop){
+        display: flex;
+    }
+ 
+}
+
+
+
+
+#nav_close{
+    display: none;
+}
+
+
+#bg{
+    background-image: url(/images/bg-intro-mobile.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    text-align: center;
+    background-color: color(very_light_gray);
+    @media(min-width: $mobile){
+        background-image: url(/images/bg-intro-desktop.svg);
+        height: 37rem;
+        background-size: 50%;
+        background-position: top right;  
+    }
+
+    section div{
+        @media(min-width: $mobile){
+            text-align:left;
+            width: 45%;
+            margin-top:10rem;
+        }
+
+    }
+
+}
+
+.bg-mockups{
+    width: 100%;
+    margin-top:-140px;
+    @media(min-width: $mobile){
+        margin-top:0;
+        width: 50%;
+        position: absolute;
+        right: 0;
+        top:0;
+        max-width: 600px;  
+        overflow: hidden;   
+    }
+
+
+}
+
+h1, h2, h3{
+    
+    color: color(dark_blue);
+    font-weight: weight(light);
+}
+
+h1{
+    font-size: 2.4rem;
+    line-height: 2.7rem;
+    text-align: center;
+    @media(min-width: $mobile){
+        text-align: left;
+
+    }
+    
+}
+h2{
+    font-size: 2rem;
+    line-height: 2.7rem;
+    text-align: center;
+    @media(min-width: $mobile){
+        text-align: left;
+
+    }
+}
+
+button{
+    border-radius:25px;
+    border: none;
+    background: linear-gradient(90deg, color(lime_green) 35%, color(bright_cyan) 100%);
+    color: white;
+    padding: .8rem 2rem;
+    text-align: center;
+    margin: 0 1rem;
+    font-weight: weight(bold);
+}
+
+p{
+    color: color(grayish_blue);
+    font-weight: weight(ligth);
+}
+
+.why_easybank{
+ background-color: color(light_gayish_blue);
+ text-align: center;
+ @media(min-width: $mobile){
+    text-align: left;
+
+}
+
+}
+.grid{
+    @media(min-width: $mobile){
+        margin:2rem 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 2rem;
+        width: 100%;
+    }
+
+    @media(min-width: $desktop_big){
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+.latest{
+    background-color: color(very_light_gray); 
+
+    .grid_latest{
+        .article{
+            background-color:white;
+            margin-bottom: 4rem;
+            img{
+                width: 100%;
+            }
+            >div{
+                padding:2rem;
+            }
+        }
+        @media(min-width: $mobile){
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap:1rem;
+        }
+        @media(min-width: $desktop_big){
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+       
+    }
+
+}
+
+
+
+footer{
+    background-color: color(dark_blue);
+    text-align: center;
+    .container{
+        display: flex;
+        flex-direction: column;
+        @media(min-width: $desktop-big){
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+        align-items: flex-end;               
+        }
+    }
+    
+    img{
+        margin: 1rem .5rem;
+        filter: brightness(100)
+    }
+    
+    ul{
+        color:white;
+        list-style-type: none;
+        padding-inline-start: 0;
+        li{
+            padding: 0.4rem;;
+        }
+        @media(min-width: $desktop-big){
+            div{
+                display: inline-block;
+                margin:0 2rem;
+            }
+                   
+        }
+
+    }
+    .footer_button{
+        @media(min-width: $desktop-big){
+        text-align: right;
+        }
+    }
+
+    
+}
